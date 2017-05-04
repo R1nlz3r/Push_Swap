@@ -1,0 +1,8 @@
+\#*#
+*~
+.nfs.*
+*.swp
+*.o
+libft.a
+checker
+push_swap
