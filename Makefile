@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/04 02:39:44 by mapandel          #+#    #+#              #
-#    Updated: 2017/05/04 12:28:33 by mapandel         ###   ########.fr        #
+#    Updated: 2017/05/06 20:09:18 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,16 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 
 #			Sources
 
-CHECK_SRC =
+CHECK_SRC =	sources/checker.c \
+			sources/checker_parsing.c \
+			sources/checker_display.c \
+
 P_S_SRC =
 
 CHECK_OBJ =	$(CHECK_SRC:.c=.o)
 P_S_OBJ =	$(P_S_SRC:.c=.o)
+
+INC =		includes
 
 #			Library Path
 
@@ -70,7 +75,7 @@ glu: fclean all clean
 #			Compilation Rules
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -I $(INC) -c -o $@ $^
 
 #			Clean Rules
 
@@ -80,5 +85,5 @@ clean:
 	@rm -rf $(CHECK_OBJ) $(P_S_OBJ)
 
 fclean: clean
-	@echo "$(RED)--::Executable and Library Delection::--$(DEF)"
+	@echo "$(RED)--::Executables and Library Delection::--$(DEF)"
 	@rm -rf $(CHECKER) $(P_S) $(LIBPATH)
