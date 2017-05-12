@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/04 02:39:44 by mapandel          #+#    #+#              #
-#    Updated: 2017/05/06 20:09:18 by mapandel         ###   ########.fr        #
+#    Updated: 2017/05/12 18:45:07 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 CHECK_SRC =	sources/checker.c \
 			sources/checker_parsing.c \
 			sources/checker_display.c \
+			sources/checker_display2.c \
 
 P_S_SRC =
 
