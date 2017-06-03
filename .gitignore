@@ -3,6 +3,7 @@
 .nfs.*
 *.swp
 *.o
+log.txt
 libft.a
 checker
 push_swap
