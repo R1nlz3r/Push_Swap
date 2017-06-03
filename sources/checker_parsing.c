@@ -6,31 +6,63 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/05/12 18:41:29 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/06/03 03:28:03 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
+t_checker			*checker_parsing_movements(t_checker *ck)
+{
+	if (!ft_strncmp(ck->line, "sa", 2) && (ck->rotation = SA))
+		ft_tabswap(ck->a);
+	else if (!ft_strncmp(ck->line, "sb", 2) && (ck->rotation = SB))
+		ft_tabswap(ck->b);
+	else if (!ft_strncmp(ck->line, "ss", 2) && ft_tabswap(ck->a)
+		&& (ck->rotation = SS))
+		ft_tabswap(ck->b);
+	else if (!ft_strncmp(ck->line, "pa", 2) && (ck->rotation = PA))
+		ft_tabpush(ck->b, ck->a);
+	else if (!ft_strncmp(ck->line, "pb", 2) && (ck->rotation = PB))
+		ft_tabpush(ck->a, ck->b);
+	else if (!ft_strncmp(ck->line, "rra", 3) && (ck->rotation = RRA))
+		ft_tabrevrotate(ck->a);
+	else if (!ft_strncmp(ck->line, "rrb", 3) && (ck->rotation = RRB))
+		ft_tabrevrotate(ck->b);
+	else if (!ft_strncmp(ck->line, "rrr", 3) && ft_tabrevrotate(ck->a)
+		&& (ck->rotation = RRR))
+		ft_tabrevrotate(ck->b);
+	else if (!ft_strncmp(ck->line, "ra", 2) && (ck->rotation = RA))
+		ft_tabrotate(ck->a);
+	else if (!ft_strncmp(ck->line, "rb", 2) && (ck->rotation = RB))
+		ft_tabrotate(ck->b);
+	else if (!ft_strncmp(ck->line, "rr", 2) && ft_tabrotate(ck->a)
+		&& (ck->rotation = RR))
+		ft_tabrotate(ck->b);
+	else if (ck->line[0])
+		ck->error = 1;
+	return (ck);
+}
+
 static void			checker_parsing_doubles(t_checker *ck)
 {
-	int		i;
-	int		j = 0;
-	int		tmp;
-	int		zerobool;
+	size_t		i;
+	size_t		j;
+	int			tmp;
+	int			zerobool;
 
 	i = 0;
 	zerobool = 0;
-	while (i < ck->a_size)
+	while (i < ck->a->len)
 	{
-		if (!(tmp = ck->a[i]))
+		if (!(tmp = ck->a->tab[i]))
 			++zerobool;
 		if (zerobool > 1 && (ck->error = -1))
 			return ;
 		j = i++ + 1;
-		while (tmp && j < ck->a_size)
+		while (tmp && j < ck->a->len)
 		{
-			if (tmp == ck->a[j++] && (ck->error = -1))
+			if (tmp == ck->a->tab[j++] && (ck->error = -1))
 				return ;
 		}
 	}
@@ -59,10 +91,11 @@ t_checker			*checker_parsing_integers(t_checker *ck, int argc,
 			&& ft_strcmp(&argv[ck->argnb][1], "2147483648") > 0))
 			&& (ck->error = -1))
 			return (ck);
-		ck->a[count++] = ft_atoi(argv[ck->argnb]);
+		ck->a->tab[count++] = ft_atoi(argv[ck->argnb]);
 		++ck->argnb;
 	}
 	checker_parsing_doubles(ck);
+	ck->a = ft_tabrev_leakless(ck->a);
 	return (ck);
 }
 
@@ -73,12 +106,10 @@ static t_checker	*checker_parsing_flags2(t_checker *ck, char **argv,
 		ck->flags->l = 1;
 	else if (argv[ck->argnb][*len] == 'v')
 		ck->flags->v = 1;
-	else if (argv[ck->argnb][*len] == 'c')
-		ck->flags->c = 1;
 	else if (argv[ck->argnb][*len] == 's' && (*stmp = 1)
 		&& ft_strisdigit(argv[ck->argnb + 1])
-		&& ft_strlen(argv[ck->argnb + 1]) <= 6
-		&& ft_atoi(argv[ck->argnb + 1]) <= 100000
+		&& ft_strlen(argv[ck->argnb + 1]) <= 7
+		&& ft_atoi(argv[ck->argnb + 1]) <= 5000000
 		&& ft_atoi(argv[ck->argnb + 1]) > 0)
 		ck->flags->s = ft_atoi(argv[ck->argnb + 1]);
 	else
