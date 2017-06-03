@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/04 02:39:44 by mapandel          #+#    #+#              #
-#    Updated: 2017/05/12 18:45:07 by mapandel         ###   ########.fr        #
+#    Updated: 2017/06/03 03:16:46 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 
 CHECK_SRC =	sources/checker.c \
 			sources/checker_parsing.c \
+			sources/checker_movements.c \
 			sources/checker_display.c \
 			sources/checker_display2.c \
 
@@ -35,6 +36,8 @@ INC =		includes
 #			Library Path
 
 LIBPATH =	libft/libft.a
+
+LIBINC	=	libft/includes
 
 #			Colors
 
@@ -76,7 +79,7 @@ glu: fclean all clean
 #			Compilation Rules
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INC) -c -o $@ $^
+	$(CC) $(CFLAGS) -I $(INC) -I $(LIBINC) -c -o $@ $^
 
 #			Clean Rules
 
