@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/04 02:39:44 by mapandel          #+#    #+#              #
-#    Updated: 2017/06/03 03:16:46 by mapandel         ###   ########.fr        #
+#    Updated: 2017/06/05 02:00:47 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ CHECK_SRC =	sources/checker.c \
 			sources/checker_display.c \
 			sources/checker_display2.c \
 
-P_S_SRC =
+P_S_SRC =	sources/push_swap.c \
+			sources/push_swap_parsing.c \
 
 CHECK_OBJ =	$(CHECK_SRC:.c=.o)
 P_S_OBJ =	$(P_S_SRC:.c=.o)
@@ -58,6 +59,8 @@ WHI =		\033[37m
 
 .PHONY: all re glu clean fclean
 
+all: $(CHECKER) $(P_S)
+
 $(CHECKER):
 	@cd libft; $(MAKE) -f Makefile
 	@echo "$(CYA)--::Compil Checker::--$(DEF)"
@@ -69,8 +72,6 @@ $(P_S):
 	@echo "$(CYA)--::Compil Push_swap::--$(DEF)"
 	@make $(P_S_OBJ)
 	@$(CC) $(CFLAGS) -o $(P_S) $(P_S_OBJ) $(LIBPATH)
-
-all: $(CHECKER) $(P_S)
 
 re: fclean all
 
