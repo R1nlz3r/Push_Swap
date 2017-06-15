@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:55:51 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/03 02:35:12 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/06/05 02:06:59 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		checker_display_usage(void)
 {
-	ft_putendl("Usage : ./checker [-clsv] list of integers");
+	ft_putendl("Usage : ./checker [-lsv] list of integers");
 	ft_putendl("	l : Get rotations from log.txt");
 	ft_putendl("	v : Print the stacks + number of rotations + last move");
 	ft_putendl("	s (+ v) + [0 < speedtime < 5000000] : Choose speedtime \
