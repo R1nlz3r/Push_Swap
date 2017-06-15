@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 13:00:23 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/04 21:50:22 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/06/06 18:51:47 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void			push_swap_parsing_doubles(t_push_swap *ps)
 	}
 }
 
-t_push_swap			*push_swap_parsing_integers(t_push_swap *ps, int argc,
-	char **argv)
+t_push_swap			*push_swap_parsing_integers(t_push_swap *ps,
+	int argc, char **argv)
 {
 	int		count;
 
