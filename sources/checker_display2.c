@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:18:44 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/03 03:19:15 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/06/06 04:25:12 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void		checker_display_rotation(t_checker *ck)
 	else if (ck->rotation == PA)
 		ft_putstr("pa");
 	else if (ck->rotation == PB)
-		ft_putstr("pa");
+		ft_putstr("pb");
 	else if (ck->rotation == RA)
 		ft_putstr("ra");
 	else if (ck->rotation == RB)
