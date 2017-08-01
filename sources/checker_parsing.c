@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/03 03:28:03 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/07/26 23:04:53 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_checker			*checker_parsing_movements(t_checker *ck)
 	return (ck);
 }
 
-static void			checker_parsing_doubles(t_checker *ck)
+void				checker_parsing_doubles(t_checker *ck)
 {
 	size_t		i;
 	size_t		j;
@@ -94,8 +94,38 @@ t_checker			*checker_parsing_integers(t_checker *ck, int argc,
 		ck->a->tab[count++] = ft_atoi(argv[ck->argnb]);
 		++ck->argnb;
 	}
-	checker_parsing_doubles(ck);
-	ck->a = ft_tabrev_leakless(ck->a);
+	return (ck);
+}
+
+t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv)
+{
+	char	**split;
+	int		i;
+
+	split = ft_strsplit(argv[ck->argnb], ' ');
+	i = 0;
+	while (split[i])
+	{
+		if (!split[i][0]
+			|| !((ft_isdigit(split[i][0]) || split[i][0] == '+'
+			|| split[i][0] == '-') && (ft_strisdigit(&split[i][1])
+			|| (!split[i][1] && ft_isdigit(split[i][0]))))
+			|| ft_strlen(split[i]) > 11
+			|| (ft_strlen(split[i]) == 11 && ft_isdigit(split[i][0]))
+			|| (ft_strlen(split[i]) == 10
+			&& ft_strcmp(split[i], "2147483647") > 0)
+			|| (ft_strlen(split[i]) == 11 && split[i][0] == '+'
+			&& ft_strcmp(&split[i][1], "2147483647") > 0)
+			|| (ft_strlen(split[i]) == 11 && split[i][0] == '-'
+			&& ft_strcmp(&split[i][1], "2147483648") > 0))
+			exit(-1);
+		ck->a->tab[i] = ft_atoi(split[i]);
+		ft_strdel(&split[i++]);
+	}
+	if (!(ck->a->len = (size_t)i))
+		exit(-1);
+	ft_memdel((void**)split);
+
 	return (ck);
 }
 
