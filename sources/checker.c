@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:47:12 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/03 03:19:09 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/07/26 23:04:34 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int			del_t_checker(t_checker *ck)
 	return (1);
 }
 
-static t_checker	*init_t_checker(t_checker *ck, int argc)
+static t_checker	*init_t_checker(t_checker *ck)
 {
 	if (!(ck = ft_memalloc(sizeof(t_checker)))
 		|| !(ck->flags = ft_memalloc(sizeof(t_checker_flags)))
-		|| !(ck->a = ft_tabnew((size_t)(argc - 1)))
-		|| !(ck->b = ft_tabnew((size_t)(argc - 1))))
+		|| !(ck->a = ft_tabnew(1000000))
+		|| !(ck->b = ft_tabnew(1000000)))
 		return (NULL);
 	ck->flags->l = 0;
 	ck->flags->s = 10000;
@@ -46,16 +46,21 @@ int					main(int argc, char **argv)
 	ck = NULL;
 	if (argc < 2)
 		return (checker_display_usage());
-	if (!(ck = init_t_checker(ck, argc)) && del_t_checker(ck))
+	if (!(ck = init_t_checker(ck)) && del_t_checker(ck))
 		return (checker_display_result(ERROR));
 	ck = checker_parsing_flags(ck, argc, argv);
 	if (!(ck->a->len = (size_t)(argc - ck->argnb)))
 		ck->error = -1;
 	if (ck->error && del_t_checker(ck))
 		return (checker_display_result(ERROR));
-	ck = checker_parsing_integers(ck, argc, argv);
+	if (ck->a->len == 1)
+		ck = checker_parsing_bash_arg(ck, argv);
+	else
+		ck = checker_parsing_integers(ck, argc, argv);
 	if (ck->error && del_t_checker(ck))
 		return (checker_display_result(ERROR));
+	checker_parsing_doubles(ck);
+	ck->a = ft_tabrev_leakless(ck->a);
 	ck = checker_movements(ck);
 	if (ck->error && del_t_checker(ck))
 		return (checker_display_result(KO));
