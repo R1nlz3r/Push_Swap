@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:44:10 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/03 03:21:07 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/07/26 23:02:07 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ typedef struct		s_checker
 
 t_checker			*checker_parsing_flags(t_checker *ck, int argc,
 	char **argv);
+t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv);
 t_checker			*checker_parsing_integers(t_checker *ck, int argc,
 	char **argv);
+void				checker_parsing_doubles(t_checker *ck);
 t_checker			*checker_parsing_movements(t_checker *ck);
 t_checker			*checker_movements(t_checker *ck);
 int					checker_display_usage(void);
