@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 13:00:23 by mapandel          #+#    #+#             */
-/*   Updated: 2017/07/26 06:21:29 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/07 09:09:13 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_push_swap		*push_swap_parsing_bash_arg(t_push_swap *ps, char **argv)
 	}
 	if (!(ps->a->len = (size_t)i))
 		exit(-1);
-	ft_memdel((void**)split);
+	ft_memdel((void**)&split);
 	return (ps);
 }
 
