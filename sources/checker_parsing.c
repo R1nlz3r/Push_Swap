@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/07/26 23:04:53 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/07 09:06:53 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,7 @@ t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv)
 	}
 	if (!(ck->a->len = (size_t)i))
 		exit(-1);
-	ft_memdel((void**)split);
-
+	ft_memdel((void**)&split);
 	return (ck);
 }
 
