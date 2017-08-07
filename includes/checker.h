@@ -6,15 +6,16 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:44:10 by mapandel          #+#    #+#             */
-/*   Updated: 2017/07/26 23:02:07 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/04 10:53:08 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 #define CHECKER_H
 
+# include <fcntl.h>
 # include "libft.h"
-# include "fcntl.h"
+# include "get_next_line.h"
 
 # define ERROR -1
 # define OK 0
