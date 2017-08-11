@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 02:05:37 by mapandel          #+#    #+#             */
-/*   Updated: 2017/06/25 18:14:15 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/11 06:17:49 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 void		push_swap_display_movements(t_push_swap *ps, int mv)
 {
 	if (mv == SA)
-		ft_putendl_fd("sa", ps->fd);
+		ft_putstr_fd_buffer("sa\n", 0, ps->fd);
 	else if (mv == SB)
-		ft_putendl_fd("sb", ps->fd);
+		ft_putstr_fd_buffer("sb\n", 0, ps->fd);
 	else if (mv == SS)
-		ft_putendl_fd("ss", ps->fd);
+		ft_putstr_fd_buffer("ss\n", 0, ps->fd);
 	else if (mv == RA)
-		ft_putendl_fd("ra", ps->fd);
+		ft_putstr_fd_buffer("ra\n", 0, ps->fd);
 	else if (mv == RB)
-		ft_putendl_fd("rb", ps->fd);
+		ft_putstr_fd_buffer("rb\n", 0, ps->fd);
 	else if (mv == RR)
-		ft_putendl_fd("rr", ps->fd);
+		ft_putstr_fd_buffer("rr\n", 0, ps->fd);
 	else if (mv == RRA)
-		ft_putendl_fd("rra", ps->fd);
+		ft_putstr_fd_buffer("rra\n", 0, ps->fd);
 	else if (mv == RRB)
-		ft_putendl_fd("rrb", ps->fd);
+		ft_putstr_fd_buffer("rrb\n", 0, ps->fd);
 	else if (mv == RRR)
-		ft_putendl_fd("rrr", ps->fd);
+		ft_putstr_fd_buffer("rrr\n", 0, ps->fd);
 	else if (mv == PA)
-		ft_putendl_fd("pa", ps->fd);
+		ft_putstr_fd_buffer("pa\n", 0, ps->fd);
 	else if (mv == PB)
-		ft_putendl_fd("pb", ps->fd);
+		ft_putstr_fd_buffer("pb\n", 0, ps->fd);
 }
 
 void		push_swap_display_usage(void)
