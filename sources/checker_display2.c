@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:18:44 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/07 12:33:02 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/11 04:27:54 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void		checker_display_nbrotations(t_checker *ck)
 {
-	//\033[?25l Hide Cursor
 	ft_putstr_buffer("\033[H\033[J", 0);
 	ft_putstr_buffer("\033[4mThe number of rotations\033[24m : ", 0);
 	ft_putllnbr_buffer(ck->nbrotations, 0);
