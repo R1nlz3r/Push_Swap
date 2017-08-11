@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 04:23:18 by mapandel          #+#    #+#             */
-/*   Updated: 2017/07/26 06:12:04 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/11 06:41:40 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,7 @@ t_push_swap		*push_swap_solver(t_push_swap *ps)
 			push_swap_buffer_movement(ps, RB);
 	}
 	push_swap_buffer_movement(ps, 0);
+	ft_putstr_fd_buffer("", 1, ps->fd);
 	if (ps->l && close(ps->fd))
 		exit (-1);
 	return (ps);
