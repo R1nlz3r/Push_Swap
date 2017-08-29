@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/29 06:30:39 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/29 06:50:42 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv)
 	i = 0;
 	while (split[i])
 	{
-		if ((!split[i][0]
-			|| !((ft_isdigit(split[i][0]) || split[i][0] == '+'
+		if ((!split[i][0] || !((ft_isdigit(split[i][0]) || split[i][0] == '+'
 			|| split[i][0] == '-') && (ft_strisdigit(&split[i][1])
 			|| (!split[i][1] && ft_isdigit(split[i][0]))))
 			|| ft_strlen(split[i]) > 11
