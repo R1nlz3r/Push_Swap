@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/07 09:06:53 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/28 21:52:10 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,8 @@ t_checker			*checker_parsing_flags(t_checker *ck, int argc, char **argv)
 	while (ck->argnb < argc && argv[ck->argnb][0] == '-')
 	{
 		stmp = 0;
-		if (!(len = (int)ft_strlen(argv[ck->argnb]) - 1) && (ck->error = -1))
+		if (!(len = (int)ft_strlen(argv[ck->argnb]) - 1)
+			&& (ck->error = -1))
 			return (ck);
 		while (len)
 		{
