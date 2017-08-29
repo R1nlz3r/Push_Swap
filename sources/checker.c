@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:47:12 by mapandel          #+#    #+#             */
-/*   Updated: 2017/07/26 23:04:34 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/29 05:15:14 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,4 @@ int					main(int argc, char **argv)
 		return (checker_display_result(KO));
 	del_t_checker(ck);
 	checker_display_result(OK);
-	return (0);
 }
