@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/04 02:39:44 by mapandel          #+#    #+#              #
-#    Updated: 2017/06/15 05:10:13 by mapandel         ###   ########.fr        #
+#    Updated: 2017/08/29 05:46:05 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 
 CHECK_SRC =	sources/checker.c \
 			sources/checker_parsing.c \
+			sources/checker_parsing2.c \
 			sources/checker_movements.c \
 			sources/checker_display.c \
 			sources/checker_display2.c \
@@ -29,6 +30,7 @@ CHECK_SRC =	sources/checker.c \
 P_S_SRC =	sources/push_swap.c \
 			sources/push_swap_parsing.c \
 			sources/push_swap_solve.c \
+			sources/push_swap_solve2.c \
 			sources/push_swap_display.c \
 
 CHECK_OBJ =	$(CHECK_SRC:.c=.o)
@@ -93,4 +95,4 @@ clean:
 
 fclean: clean
 	@echo "$(RED)--::Executables and Library Delection::--$(DEF)"
-	@rm -rf $(CHECKER) $(P_S) $(LIBPATH)
+	@rm -rf $(CHECKER) $(P_S) #$(LIBPATH)
