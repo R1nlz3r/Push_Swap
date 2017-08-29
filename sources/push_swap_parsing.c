@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 13:00:23 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/07 09:09:13 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/29 05:25:16 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,14 @@ t_push_swap		*push_swap_parsing_integers(t_push_swap *ps,
 	return (ps);
 }
 
+static void		push_swap_parsing_bash_arg2(t_push_swap *ps, int i,
+	char **split)
+{
+	if (!(ps->a->len = (size_t)i))
+		exit(-1);
+	ft_memdel((void**)&split);
+}
+
 t_push_swap		*push_swap_parsing_bash_arg(t_push_swap *ps, char **argv)
 {
 	char	**split;
@@ -90,9 +98,7 @@ t_push_swap		*push_swap_parsing_bash_arg(t_push_swap *ps, char **argv)
 		ps->a->tab[i] = ft_atoi(split[i]);
 		ft_strdel(&split[i++]);
 	}
-	if (!(ps->a->len = (size_t)i))
-		exit(-1);
-	ft_memdel((void**)&split);
+	push_swap_parsing_bash_arg2(ps, i, split);
 	return (ps);
 }
 
