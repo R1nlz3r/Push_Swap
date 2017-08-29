@@ -6,12 +6,12 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:44:10 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/04 10:53:08 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/29 04:44:09 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
-#define CHECKER_H
+# define CHECKER_H
 
 # include <fcntl.h>
 # include "libft.h"
@@ -33,7 +33,7 @@
 # define RRB 10
 # define RRR 11
 
-typedef struct		t_checker_flags
+typedef struct		s_checker_flags
 {
 	int				l;
 	int				s;
@@ -65,6 +65,5 @@ t_checker			*checker_movements(t_checker *ck);
 int					checker_display_usage(void);
 int					checker_display_result(int result);
 void				checker_display_v_flag(t_checker *ck);
-
 
 #endif
