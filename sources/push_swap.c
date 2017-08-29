@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 17:46:54 by mapandel          #+#    #+#             */
-/*   Updated: 2017/07/26 06:17:05 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/08/28 21:51:00 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_push_swap		*init_t_push_swap(t_push_swap *ps)
 	return (ps);
 }
 
-int		main(int argc, char **argv)
+int						main(int argc, char **argv)
 {
 	t_push_swap		*ps;
 
