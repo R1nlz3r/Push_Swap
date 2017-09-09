@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 02:05:37 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/11 06:17:49 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/07 02:03:38 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		push_swap_display_movements(t_push_swap *ps, int mv)
 
 void		push_swap_display_usage(void)
 {
-	ft_putendl("Usage : ./checker [-l] list of integers");
+	ft_putendl("Usage : ./push_swap [-l] list of integers");
 	ft_putendl("	l : Print rotations in log.txt rather than on stdout");
 	exit(-1);
 }
