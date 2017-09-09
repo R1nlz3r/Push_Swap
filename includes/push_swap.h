@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 17:47:39 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/29 06:08:49 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/09 08:38:03 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,21 @@ typedef struct		s_push_swap
 	int				l;
 	int				argnb;
 	int				fd;
+	int				q12;
+	int				q19;
+	int				q25;
+	int				q32;
+	int				q37;
+	int				q44;
 	int				median;
+	int				q57;
+	int				q62;
+	int				q69;
+	int				q75;
+	int				q82;
+	int				q87;
+	int				q94;
 	int				lastmove;
-	char			pad_0[4];
 	size_t			lastmove_count;
 }					t_push_swap;
 
