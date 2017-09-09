@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:47:12 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/29 05:15:14 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/09 13:55:23 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,16 @@ static t_checker	*init_t_checker(t_checker *ck)
 	return (ck);
 }
 
+static int			main2(t_checker *ck)
+{
+	ck->a = ft_tabrev_leakless(ck->a);
+	ck = checker_movements(ck);
+	if (ck->error && del_t_checker(ck))
+		return (checker_display_result(KO));
+	del_t_checker(ck);
+	return (checker_display_result(OK));
+}
+
 int					main(int argc, char **argv)
 {
 	t_checker		*ck;
@@ -60,10 +70,7 @@ int					main(int argc, char **argv)
 	if (ck->error && del_t_checker(ck))
 		return (checker_display_result(ERROR));
 	checker_parsing_doubles(ck);
-	ck->a = ft_tabrev_leakless(ck->a);
-	ck = checker_movements(ck);
 	if (ck->error && del_t_checker(ck))
-		return (checker_display_result(KO));
-	del_t_checker(ck);
-	checker_display_result(OK);
+		return (checker_display_result(ERROR));
+	return (main2(ck));
 }
