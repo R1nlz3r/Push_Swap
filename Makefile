@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/04 02:39:44 by mapandel          #+#    #+#              #
-#    Updated: 2017/08/29 06:38:38 by mapandel         ###   ########.fr        #
+#    Updated: 2017/09/09 13:58:15 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,4 +95,4 @@ clean:
 
 fclean: clean
 	@echo "$(RED)--::Executables and Library Delection::--$(DEF)"
-	@rm -rf $(CHECKER) $(P_S) #$(LIBPATH)
+	@rm -rf $(CHECKER) $(P_S) $(LIBPATH)
