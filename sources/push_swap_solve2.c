@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 05:46:22 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/29 06:07:10 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/09 13:41:42 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,14 @@ static void		push_swap_solver6(t_push_swap *ps)
 
 static void		push_swap_solver5(t_push_swap *ps)
 {
-	if (ps->a->len > 100 && ((ft_tabmin(ps->a) <= (ps->median + ps->median / 2)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 2))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 2 + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 2
-		+ ps->median / 8))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 2 + ps->median / 4)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 2
-		+ ps->median / 4))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 2 + ps->median / 4
-		+ ps->median / 8) && ps->a->tab[ps->a->len - 1]
-		> (ps->median + ps->median / 2 + ps->median / 4 + ps->median / 8))
-		|| (ft_tabmin(ps->a) > (ps->median + ps->median / 2 + ps->median / 4
-		+ ps->median / 8) && ps->a->tab[ps->a->len - 1] != ft_tabmin(ps->a))))
+	if (ps->a->len > 100
+		&& ((ft_tabmin(ps->a) <= ps->q75
+		&& ps->a->tab[ps->a->len - 1] > ps->q75)
+		|| (ft_tabmin(ps->a) <= ps->q82 && ps->a->tab[ps->a->len - 1] > ps->q82)
+		|| (ft_tabmin(ps->a) <= ps->q87 && ps->a->tab[ps->a->len - 1] > ps->q87)
+		|| (ft_tabmin(ps->a) <= ps->q94 && ps->a->tab[ps->a->len - 1] > ps->q94)
+		|| (ft_tabmin(ps->a) > ps->q94
+		&& ps->a->tab[ps->a->len - 1] != ft_tabmin(ps->a))))
 		push_swap_buffer_movement(ps, RA);
 	else
 		push_swap_solver6(ps);
@@ -55,28 +50,20 @@ static void		push_swap_solver5(t_push_swap *ps)
 
 static void		push_swap_solver4(t_push_swap *ps)
 {
-	if (ps->a->len > 100 && ((ft_tabmin(ps->a) <= ps->median / 4
-		&& ps->a->tab[ps->a->len - 1] > ps->median / 4)
-		|| (ft_tabmin(ps->a) <= (ps->median / 4 + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median / 4 + ps->median / 8))
-		|| (ft_tabmin(ps->a) <= ps->median / 2
-		&& ps->a->tab[ps->a->len - 1] > ps->median / 2)
-		|| (ft_tabmin(ps->a) <= (ps->median / 2 + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median / 2 + ps->median / 8))
-		|| (ft_tabmin(ps->a) <= (ps->median / 2 + ps->median / 4)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median / 2 + ps->median / 4))
-		|| (ft_tabmin(ps->a) <= (ps->median / 2 + ps->median / 4
-		+ ps->median / 8) && ps->a->tab[ps->a->len - 1] > (ps->median / 2
-		+ ps->median / 4 + ps->median / 8))
+	if (ps->a->len > 100
+		&& ((ft_tabmin(ps->a) <= ps->q12
+		&& ps->a->tab[ps->a->len - 1] > ps->q12)
+		|| (ft_tabmin(ps->a) <= ps->q19 && ps->a->tab[ps->a->len - 1] > ps->q19)
+		|| (ft_tabmin(ps->a) <= ps->q25 && ps->a->tab[ps->a->len - 1] > ps->q25)
+		|| (ft_tabmin(ps->a) <= ps->q32 && ps->a->tab[ps->a->len - 1] > ps->q32)
+		|| (ft_tabmin(ps->a) <= ps->q37 && ps->a->tab[ps->a->len - 1] > ps->q37)
+		|| (ft_tabmin(ps->a) <= ps->q44 && ps->a->tab[ps->a->len - 1] > ps->q44)
 		|| (ft_tabmin(ps->a) <= ps->median
 		&& ps->a->tab[ps->a->len - 1] > ps->median)
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 8))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 4)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 4))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 4 + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 4
-		+ ps->median / 8))))
+		|| (ft_tabmin(ps->a) <= ps->q57 && ps->a->tab[ps->a->len - 1] > ps->q57)
+		|| (ft_tabmin(ps->a) <= ps->q62 && ps->a->tab[ps->a->len - 1] > ps->q62)
+		|| (ft_tabmin(ps->a) <= ps->q69
+		&& ps->a->tab[ps->a->len - 1] > ps->q69)))
 		push_swap_buffer_movement(ps, RA);
 	else
 		push_swap_solver5(ps);
@@ -84,27 +71,21 @@ static void		push_swap_solver4(t_push_swap *ps)
 
 static void		push_swap_solver3(t_push_swap *ps)
 {
-	if (ps->a->len <= 100 && ((ft_tabmin(ps->a) <= ps->median / 4
-		&& ps->a->tab[ps->a->len - 1] > ps->median / 4)
-		|| (ft_tabmin(ps->a) <= (ps->median / 4 + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median / 4 + ps->median / 8))
-		|| (ft_tabmin(ps->a) <= ps->median / 2
-		&& ps->a->tab[ps->a->len - 1] > ps->median / 2)
-		|| (ft_tabmin(ps->a) <= (ps->median / 2 + ps->median / 8)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median / 2 + ps->median / 8))
-		|| (ft_tabmin(ps->a) <= (ps->median / 2 + ps->median / 4)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median / 2 + ps->median / 4))
+	if (ps->a->len <= 100
+		&& ((ft_tabmin(ps->a) <= ps->q12
+		&& ps->a->tab[ps->a->len - 1] > ps->q12)
+		|| (ft_tabmin(ps->a) <= ps->q19 && ps->a->tab[ps->a->len - 1] > ps->q19)
+		|| (ft_tabmin(ps->a) <= ps->q25 && ps->a->tab[ps->a->len - 1] > ps->q25)
+		|| (ft_tabmin(ps->a) <= ps->q32 && ps->a->tab[ps->a->len - 1] > ps->q32)
+		|| (ft_tabmin(ps->a) <= ps->q37 && ps->a->tab[ps->a->len - 1] > ps->q37)
 		|| (ft_tabmin(ps->a) <= ps->median
 		&& ps->a->tab[ps->a->len - 1] > ps->median)
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 4)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 4))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 2)
-		&& ps->a->tab[ps->a->len - 1] > (ps->median + ps->median / 2))
-		|| (ft_tabmin(ps->a) <= (ps->median + ps->median / 2 + ps->median / 4)
-		&& ps->a->tab[ps->a->len - 1]
-		> (ps->median + ps->median / 2 + ps->median / 4))
-		|| (ft_tabmin(ps->a) > (ps->median + ps->median / 2 + ps->median / 4
-		+ ps->median / 8) && ps->a->tab[ps->a->len - 1] != ft_tabmin(ps->a))))
+		|| (ft_tabmin(ps->a) <= ps->q62 && ps->a->tab[ps->a->len - 1] > ps->q62)
+		|| (ft_tabmin(ps->a) <= ps->q75 && ps->a->tab[ps->a->len - 1] > ps->q75)
+		|| (ft_tabmin(ps->a) <= ps->q87 && ps->a->tab[ps->a->len - 1] > ps->q87)
+		|| (ft_tabmin(ps->a) <= ps->q94 && ps->a->tab[ps->a->len - 1] > ps->q94)
+		|| (ft_tabmin(ps->a) > ps->q94
+		&& ps->a->tab[ps->a->len - 1] != ft_tabmin(ps->a))))
 		push_swap_buffer_movement(ps, RA);
 	else
 		push_swap_solver4(ps);
