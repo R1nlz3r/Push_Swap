@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 18:31:16 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/11 06:40:47 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/10 15:02:28 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_checker		*checker_movements(t_checker *ck)
 	}
 	ft_strdel(&ck->line);
 	if (ck->flags->l && close(ck->fd) == -1)
-		ck->error = -1;
-	if (!ft_tabisdescending(ck->a) || ck->b->len)
 		ck->error = 1;
+	if (!ck->error && (!ft_tabisdescending(ck->a) || ck->b->len))
+		ck->error = -1;
 	return (ck);
 }
