@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:55:51 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/29 04:53:23 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/10 14:45:44 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		checker_display_usage(void)
 	ft_putstr_buffer(" + last move\n", 1);
 	ft_putstr_buffer("	s (+ v) + [0 < speedtime < 5000000] :", 1);
 	ft_putstr_buffer(" Choose speedtime (microseconds)\n", 1);
-	return (checker_display_result(ERROR));
+	return (0);
 }
 
 int		checker_display_result(int result)
