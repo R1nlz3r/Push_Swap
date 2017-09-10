@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:47:12 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/09 13:55:23 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/10 14:59:54 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ static int			main2(t_checker *ck)
 {
 	ck->a = ft_tabrev_leakless(ck->a);
 	ck = checker_movements(ck);
-	if (ck->error && del_t_checker(ck))
+	if (ck->error == -1 && del_t_checker(ck))
 		return (checker_display_result(KO));
+	else if (ck->error == 1 && del_t_checker(ck))
+		return (checker_display_result(ERROR));
 	del_t_checker(ck);
 	return (checker_display_result(OK));
 }
