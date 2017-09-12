@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 04:23:18 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/09 13:48:07 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/12 05:30:15 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,12 @@ t_push_swap		*push_swap_solver(t_push_swap *ps)
 	push_swap_init_percentiles(ps);
 	while (!ft_tabisdescending(ps->a) || ps->b->len)
 	{
-		if (!ps->b->len && ((ps->a->len == 3
+		if (((ps->a->len == 3
 			&& ((ft_tabmin(ps->a) == ps->a->tab[0]
 			&& ft_tabmax(ps->a) == ps->a->tab[1])
 			|| (ft_tabmin(ps->a) == ps->a->tab[0]
-			&& ft_tabmax(ps->a) == ps->a->tab[2]))) || ps->a->len == 2))
+			&& ft_tabmax(ps->a) == ps->a->tab[2]))) || ps->a->len == 2)
+			&& !ft_tabisdescending(ps->a))
 			push_swap_buffer_movement(ps, RRA);
 		else
 			push_swap_solver2(ps);
