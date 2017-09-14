@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:47:12 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/10 14:59:54 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/14 18:38:22 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_checker	*init_t_checker(t_checker *ck)
 		|| !(ck->b = ft_tabnew(1000000)))
 		return (NULL);
 	ck->flags->l = 0;
-	ck->flags->s = 10000;
+	ck->flags->s = 1;
 	ck->flags->v = 0;
 	ck->argnb = 1;
 	ck->rotation = 0;
