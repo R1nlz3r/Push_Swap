@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 12:55:51 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/10 14:45:44 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/14 18:42:37 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		checker_display_usage(void)
 	ft_putstr_buffer("	l : Get rotations from log.txt\n", 1);
 	ft_putstr_buffer("	v : Print the stacks + number of rotations", 1);
 	ft_putstr_buffer(" + last move\n", 1);
-	ft_putstr_buffer("	s (+ v) + [0 < speedtime < 5000000] :", 1);
-	ft_putstr_buffer(" Choose speedtime (microseconds)\n", 1);
+	ft_putstr_buffer("	s + [0 < delay < 5000000] :", 1);
+	ft_putstr_buffer(" Choose delay (microseconds) with -v triggered\n", 1);
 	return (0);
 }
 
@@ -33,6 +33,6 @@ int		checker_display_result(int result)
 	if (result == KO)
 		ft_putendl("\033[31mKO\033[0m");
 	else if (result == ERROR)
-		ft_putendl("\033[31mError\033[0m");
+		ft_putendl_fd("\033[31mError\033[0m", 2);
 	return (-1);
 }
