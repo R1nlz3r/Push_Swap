@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 04:23:18 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/12 05:30:15 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/14 17:20:12 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ t_push_swap		*push_swap_solver(t_push_swap *ps)
 {
 	remove("log.txt");
 	if (ps->l && (ps->fd = open("log.txt", O_CREAT | O_WRONLY, 0666)) == -1)
-		exit(-1);
+		push_swap_display_error();
 	push_swap_init_percentiles(ps);
 	while (!ft_tabisdescending(ps->a) || ps->b->len)
 	{
@@ -116,6 +116,6 @@ t_push_swap		*push_swap_solver(t_push_swap *ps)
 	push_swap_buffer_movement(ps, 0);
 	ft_putstr_fd_buffer("", 1, ps->fd);
 	if (ps->l && close(ps->fd))
-		exit(-1);
+		push_swap_display_error();
 	return (ps);
 }
