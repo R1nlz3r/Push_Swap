@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 17:47:39 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/09 08:38:03 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/14 17:58:27 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_push_swap			*push_swap_solver(t_push_swap *ps);
 void				push_swap_solver2(t_push_swap *ps);
 void				push_swap_buffer_movement(t_push_swap *ps, int mv);
 void				push_swap_display_usage(void) __attribute__((noreturn));
+void				push_swap_display_error(void) __attribute__((noreturn));
 void				push_swap_display_movements(t_push_swap *ps, int mv);
 
 #endif
