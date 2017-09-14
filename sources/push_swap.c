@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 17:46:54 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/28 21:51:00 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/14 18:10:14 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int						main(int argc, char **argv)
 	ps = init_t_push_swap(ps);
 	ps = push_swap_parsing_flags(ps, argc, argv);
 	if (!(ps->a->len = (size_t)(argc - ps->argnb)))
-		exit(-1);
+		push_swap_display_error();
 	if (ps->a->len == 1)
 		ps = push_swap_parsing_bash_arg(ps, argv);
 	else
