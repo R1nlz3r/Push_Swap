@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/08/29 06:51:41 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/14 18:24:10 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 static void			checker_parsing_bash_arg2(t_checker *ck, int i,
 	char **split)
 {
-	if (!(ck->a->len = (size_t)i))
-		exit(-1);
 	ft_memdel((void**)&split);
+	if (!(ck->a->len = (size_t)i))
+	{
+		checker_display_result(ERROR);
+		exit(-1);
+	}
 }
 
 t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv)
