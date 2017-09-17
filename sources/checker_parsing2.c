@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 05:38:22 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/10 15:34:05 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/16 17:28:34 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,20 +91,7 @@ t_checker			*checker_parsing_integers(t_checker *ck, int argc,
 	count = 0;
 	while (ck->argnb < argc)
 	{
-		if ((!argv[ck->argnb][0] || !((ft_isdigit(argv[ck->argnb][0])
-			|| argv[ck->argnb][0] == '+' || argv[ck->argnb][0] == '-')
-			&& (ft_strisdigit(&argv[ck->argnb][1]) || (!argv[ck->argnb][1]
-			&& ft_isdigit(argv[ck->argnb][0]))))
-			|| ft_strlen(argv[ck->argnb]) > 11
-			|| (ft_strlen(argv[ck->argnb]) == 11
-			&& ft_isdigit(argv[ck->argnb][0]))
-			|| (ft_strlen(argv[ck->argnb]) == 10
-			&& ft_strcmp(argv[ck->argnb], "2147483647") > 0)
-			|| (ft_strlen(argv[ck->argnb]) == 11 && argv[ck->argnb][0] == '+'
-			&& ft_strcmp(&argv[ck->argnb][1], "2147483647") > 0)
-			|| (ft_strlen(argv[ck->argnb]) == 11 && argv[ck->argnb][0] == '-'
-			&& ft_strcmp(&argv[ck->argnb][1], "2147483648") > 0))
-			&& (ck->error = -1))
+		if (ft_atoi_strict(argv[ck->argnb]) == 10000000000 && (ck->error = -1))
 			return (ck);
 		ck->a->tab[count++] = ft_atoi(argv[ck->argnb]);
 		++ck->argnb;
