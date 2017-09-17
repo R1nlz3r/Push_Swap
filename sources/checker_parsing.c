@@ -6,22 +6,11 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:03:31 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/14 18:24:10 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/17 09:33:11 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-static void			checker_parsing_bash_arg2(t_checker *ck, int i,
-	char **split)
-{
-	ft_memdel((void**)&split);
-	if (!(ck->a->len = (size_t)i))
-	{
-		checker_display_result(ERROR);
-		exit(-1);
-	}
-}
 
 t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv)
 {
@@ -32,23 +21,17 @@ t_checker			*checker_parsing_bash_arg(t_checker *ck, char **argv)
 	i = 0;
 	while (split[i])
 	{
-		if ((!split[i][0] || !((ft_isdigit(split[i][0]) || split[i][0] == '+'
-			|| split[i][0] == '-') && (ft_strisdigit(&split[i][1])
-			|| (!split[i][1] && ft_isdigit(split[i][0]))))
-			|| ft_strlen(split[i]) > 11
-			|| (ft_strlen(split[i]) == 11 && ft_isdigit(split[i][0]))
-			|| (ft_strlen(split[i]) == 10
-			&& ft_strcmp(split[i], "2147483647") > 0)
-			|| (ft_strlen(split[i]) == 11 && split[i][0] == '+'
-			&& ft_strcmp(&split[i][1], "2147483647") > 0)
-			|| (ft_strlen(split[i]) == 11 && split[i][0] == '-'
-			&& ft_strcmp(&split[i][1], "2147483648") > 0))
-			&& (ck->error = -1))
+		if (ft_atoi_strict(split[i]) == 10000000000 && (ck->error = -1))
 			return (ck);
 		ck->a->tab[i] = ft_atoi(split[i]);
 		ft_strdel(&split[i++]);
 	}
-	checker_parsing_bash_arg2(ck, i, split);
+	ft_memdel((void**)&split);
+	if (!(ck->a->len = (size_t)i))
+	{
+		checker_display_result(ERROR);
+		exit(-1);
+	}
 	return (ck);
 }
 
@@ -60,10 +43,8 @@ static t_checker	*checker_parsing_flags2(t_checker *ck, char **argv,
 	else if (argv[ck->argnb][*len] == 'v')
 		ck->flags->v = 1;
 	else if (argv[ck->argnb][*len] == 's' && (*stmp = 1)
-		&& ft_strisdigit(argv[ck->argnb + 1])
-		&& ft_strlen(argv[ck->argnb + 1]) <= 7
-		&& ft_atoi(argv[ck->argnb + 1]) <= 5000000
-		&& ft_atoi(argv[ck->argnb + 1]) > 0)
+		&& ft_atoi_strict(argv[ck->argnb + 1]) <= 5000000
+		&& ft_atoi_strict(argv[ck->argnb + 1]) > 0)
 		ck->flags->s = ft_atoi(argv[ck->argnb + 1]);
 	else
 		ck->error = -1;
