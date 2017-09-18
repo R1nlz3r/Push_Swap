@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 18:31:16 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/10 15:02:28 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/18 11:00:22 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_checker		*checker_movements(t_checker *ck)
 		if (ck->flags->v)
 			usleep((useconds_t)ck->flags->s);
 		ck = checker_parsing_movements(ck);
-		if (ck->error || !ck->line[0])
+		if (ck->error)
 		{
 			ft_strdel(&ck->line);
 			break ;
