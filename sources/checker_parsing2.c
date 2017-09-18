@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 05:38:22 by mapandel          #+#    #+#             */
-/*   Updated: 2017/09/16 17:28:34 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/09/18 10:14:59 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_checker	*checker_parsing_movements2(t_checker *ck)
 	else if (!ft_strncmp(ck->line, "rr", 2) && ft_strlen(ck->line) == 2
 		&& ft_tabrotate(ck->a) && (ck->rotation = RR))
 		ft_tabrotate(ck->b);
-	else if (ck->line[0])
+	else
 		ck->error = 1;
 	return (ck);
 }
